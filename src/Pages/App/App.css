@@ -1,0 +1,37 @@
+@tailwind base;        /* Estilos base de Tailwind */
+@tailwind components;  /* Componentes de Tailwind */
+@tailwind utilities;   /* Utilidades de Tailwind */
+
+
+/* Variables CSS globales */
+:root {
+    --primary-color: #3ea987;    /* Color principal (verde) */
+    --secondary-color: #000000;  /* Color secundario (negro) */
+}
+
+/* Comportamiento suave del scroll */
+html {
+    scroll-behavior: smooth;  /* Hace que el scroll sea suave */
+}
+
+/* Fuente principal de la aplicación */
+body {
+    font-family: 'Poppins', sans-serif;  /* Usa la fuente Poppins */
+}
+
+/* Personalización de los controles del Swiper */
+/* Botones de navegación */
+.swiper-button-next,
+.swiper-button-prev {
+    color: white !important;  /* Color blanco para los botones */
+}
+
+/* Bullets de paginación inactivos */
+.swiper-pagination-bullet {
+    background: white !important;  /* Color blanco para bullets inactivos */
+}
+
+/* Bullet de paginación activo */
+.swiper-pagination-bullet-active {
+    background: var(--primary-color) !important;  /* Color primario para bullet activo */
+}
