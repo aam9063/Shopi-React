@@ -15,8 +15,8 @@ function MyOrders() {
   })
 
   // Función para formatear fechas en español
-  const formatDate = (date) => {
-    return new Date(date).toLocaleDateString('es-ES', {
+  const formatDate = (dateString) => {
+    return new Date(dateString).toLocaleDateString('es-ES', {
       year: 'numeric',
       month: 'long',
       day: 'numeric'
@@ -26,8 +26,8 @@ function MyOrders() {
   return (
     <Layout>
       {/* Contenedor principal con fondo y padding */}
-      <div className="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
+      <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-3xl mx-auto">
           {/* Tarjeta principal con animación de entrada */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -40,10 +40,10 @@ function MyOrders() {
             {orders.length === 0 ? (
               // Mensaje cuando no hay órdenes
               <div className="text-center py-12">
-                <p className="text-gray-500 mb-4">No tienes pedidos todavía</p>
+                <p className="text-gray-500">No tienes pedidos realizados</p>
                 <Link
                   to="/products"
-                  className="text-primary hover:text-secondary"
+                  className="mt-4 inline-block text-primary hover:text-secondary"
                 >
                   Ir a comprar
                 </Link>
@@ -62,54 +62,61 @@ function MyOrders() {
                     {/* Cabecera de la orden */}
                     <div className="flex justify-between items-start mb-4">
                       <div>
-                        <p className="text-sm text-gray-500">
+                        <h3 className="text-lg font-semibold">
                           Pedido #{order.id}
-                        </p>
-                        <p className="text-sm text-gray-500">
+                        </h3>
+                        <p className="text-gray-500">
                           {formatDate(order.date)}
                         </p>
                       </div>
                       {/* Estado de la orden */}
-                      <span className="px-3 py-1 text-sm rounded-full bg-primary/10 text-primary">
+                      <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">
                         {order.status}
                       </span>
                     </div>
 
                     {/* Lista de productos en la orden */}
-                    <div className="space-y-4">
-                      {order.items.map((item) => (
-                        <div
-                          key={item.id}
-                          className="flex items-center gap-4"
+                    <div className="space-y-2">
+                      {order.products.map((product) => (
+                        <div 
+                          key={`${order.id}-${product.id}`}
+                          className="flex justify-between items-center"
                         >
-                          {/* Imagen del producto */}
-                          <img
-                            src={item.image}
-                            alt={item.title}
-                            className="w-16 h-16 object-cover rounded-lg"
-                          />
-                          {/* Detalles del producto */}
-                          <div className="flex-grow">
-                            <h3 className="font-medium">{item.title}</h3>
-                            <p className="text-sm text-gray-500">
-                              Cantidad: {item.quantity}
-                            </p>
+                          <div className="flex items-center gap-4">
+                            <img 
+                              src={product.image} 
+                              alt={product.title}
+                              className="w-12 h-12 object-contain rounded"
+                            />
+                            <div>
+                              <p className="font-medium">{product.title}</p>
+                              <p className="text-sm text-gray-500">
+                                Cantidad: {product.quantity}
+                              </p>
+                            </div>
                           </div>
                           {/* Precio total del item */}
-                          <p className="font-semibold">
-                            ${(item.price * item.quantity).toFixed(2)}
+                          <p className="font-medium">
+                            ${(product.price * product.quantity).toFixed(2)}
                           </p>
                         </div>
                       ))}
                     </div>
 
                     {/* Pie de la orden con total */}
-                    <div className="mt-6 pt-6 border-t">
-                      <div className="flex justify-between items-center">
-                        <span className="font-semibold">Total</span>
-                        <span className="text-xl font-bold text-primary">
+                    <div className="mt-4 pt-4 border-t flex justify-between items-center">
+                      <div>
+                        <p className="text-gray-500">Enviado a:</p>
+                        <p className="font-medium">{order.shipping.fullName}</p>
+                        <p className="text-sm text-gray-500">
+                          {order.shipping.address}, {order.shipping.city}
+                        </p>
+                      </div>
+                      <div className="text-right">
+                        <p className="text-gray-500">Total:</p>
+                        <p className="text-2xl font-bold text-primary">
                           ${order.total.toFixed(2)}
-                        </span>
+                        </p>
                       </div>
                     </div>
                   </motion.div>

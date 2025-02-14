@@ -12,6 +12,7 @@ import MyOrder from '../MyOrder'
 import MyOrders from '../MyOrders'
 import NotFound from '../NotFound'
 import SignIn from '../SignIn'
+import Checkout from '../Checkout'
 import './App.css'
 
 // Componente de rutas de la aplicación
@@ -25,6 +26,7 @@ const AppRoutes = () => {
     { path: '/my-order', element: <MyOrder /> },         // Orden individual
     { path: '/my-orders', element: <MyOrders /> },       // Lista de órdenes
     { path: '/sign-in', element: <SignIn /> },           // Inicio de sesión
+    { path: '/checkout', element: <Checkout /> },
     { path: '/*', element: <NotFound /> },               // Página 404
   ])
 
