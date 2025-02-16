@@ -25,19 +25,15 @@ function MyAccount() {
 
   return (
     <Layout>
-      {/* Contenedor principal con fondo y padding */}
-      <div className="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto">
-          {/* Tarjeta principal con animación de entrada */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-white p-8 rounded-xl shadow-lg"
+            className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg"
           >
-            {/* Cabecera con título y botón de edición */}
             <div className="flex justify-between items-center mb-8">
-              <h2 className="text-3xl font-bold text-gray-900">Mi Cuenta</h2>
-              {/* Botón para alternar modo edición */}
+              <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Mi Cuenta</h2>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -48,11 +44,9 @@ function MyAccount() {
               </motion.button>
             </div>
 
-            {/* Formulario de datos de usuario */}
             <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Campo de Nombre */}
               <div>
-                <label className="block text-sm font-medium text-gray-700">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                   Nombre
                 </label>
                 {isEditing ? (
@@ -60,16 +54,15 @@ function MyAccount() {
                     type="text"
                     value={formData.name}
                     onChange={(e) => setFormData({...formData, name: e.target.value})}
-                    className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg"
+                    className="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                   />
                 ) : (
-                  <p className="mt-1 text-gray-900">{formData.name}</p>
+                  <p className="mt-1 text-gray-900 dark:text-white">{formData.name}</p>
                 )}
               </div>
 
-              {/* Campo de Email */}
               <div>
-                <label className="block text-sm font-medium text-gray-700">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                   Email
                 </label>
                 {isEditing ? (
@@ -77,16 +70,15 @@ function MyAccount() {
                     type="email"
                     value={formData.email}
                     onChange={(e) => setFormData({...formData, email: e.target.value})}
-                    className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg"
+                    className="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                   />
                 ) : (
-                  <p className="mt-1 text-gray-900">{formData.email}</p>
+                  <p className="mt-1 text-gray-900 dark:text-white">{formData.email}</p>
                 )}
               </div>
 
-              {/* Campo de Dirección */}
               <div>
-                <label className="block text-sm font-medium text-gray-700">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                   Dirección
                 </label>
                 {isEditing ? (
@@ -94,16 +86,15 @@ function MyAccount() {
                     type="text"
                     value={formData.address}
                     onChange={(e) => setFormData({...formData, address: e.target.value})}
-                    className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg"
+                    className="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                   />
                 ) : (
-                  <p className="mt-1 text-gray-900">{formData.address || 'No especificada'}</p>
+                  <p className="mt-1 text-gray-900 dark:text-white">{formData.address || 'No especificada'}</p>
                 )}
               </div>
 
-              {/* Campo de Teléfono */}
               <div>
-                <label className="block text-sm font-medium text-gray-700">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                   Teléfono
                 </label>
                 {isEditing ? (
@@ -111,20 +102,19 @@ function MyAccount() {
                     type="tel"
                     value={formData.phone}
                     onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                    className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg"
+                    className="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                   />
                 ) : (
-                  <p className="mt-1 text-gray-900">{formData.phone || 'No especificado'}</p>
+                  <p className="mt-1 text-gray-900 dark:text-white">{formData.phone || 'No especificado'}</p>
                 )}
               </div>
 
-              {/* Botón de guardar (solo visible en modo edición) */}
               {isEditing && (
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   type="submit"
-                  className="w-full py-3 text-white bg-primary hover:bg-secondary rounded-xl"
+                  className="w-full py-3 text-white transition-colors bg-primary hover:bg-secondary rounded-xl"
                 >
                   Guardar Cambios
                 </motion.button>

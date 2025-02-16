@@ -15,7 +15,7 @@ function Hero({ featuredProducts }) {
 
   return (
     // Contenedor principal del hero con altura y fondo definidos
-    <div className="h-[80vh] w-full bg-gray-50">
+    <div className="h-[80vh] w-full bg-gray-50 dark:bg-gray-800">
       {/* Configuración del carrusel Swiper */}
       <Swiper
         spaceBetween={0}           // Sin espacio entre slides
@@ -48,11 +48,11 @@ function Hero({ featuredProducts }) {
                   className="max-w-xl"
                 >
                   {/* Título del producto */}
-                  <h2 className="mb-4 text-3xl font-bold text-gray-800 md:text-5xl lg:text-6xl">
+                  <h2 className="mb-4 text-3xl font-bold text-gray-800 dark:text-white md:text-5xl lg:text-6xl">
                     {product.title}
                   </h2>
                   {/* Descripción del producto limitada a 3 líneas */}
-                  <p className="mb-8 text-lg text-gray-600 line-clamp-3">
+                  <p className="mb-8 text-lg text-gray-600 dark:text-gray-300 line-clamp-3">
                     {product.description}
                   </p>
                   {/* Contenedor de CTA y precio */}
@@ -65,7 +65,7 @@ function Hero({ featuredProducts }) {
                       Ver Producto
                     </Link>
                     {/* Precio del producto */}
-                    <span className="text-3xl font-bold text-gray-800">
+                    <span className="text-3xl font-bold text-gray-800 dark:text-white">
                       ${product.price}
                     </span>
                   </div>

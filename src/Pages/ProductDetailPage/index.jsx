@@ -55,7 +55,7 @@ function ProductDetailPage() {
   if (loading) {
     return (
       <Layout>
-        <div className="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+        <div className="min-h-screen bg-gray-100 dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <div className="flex justify-center items-center">
               <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-primary"></div>
@@ -70,7 +70,7 @@ function ProductDetailPage() {
   if (error) {
     return (
       <Layout>
-        <div className="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+        <div className="min-h-screen bg-gray-100 dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <div className="text-center text-red-500">
               Error: {error}
@@ -84,7 +84,7 @@ function ProductDetailPage() {
   // Renderizado principal del producto
   return (
     <Layout>
-      <div className="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="min-h-screen bg-gray-100 dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row gap-8">
             {/* Botón para volver atrás */}
@@ -92,7 +92,7 @@ function ProductDetailPage() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => navigate(-1)}
-              className="absolute top-24 left-8 p-2 text-gray-600 hover:text-gray-900"
+              className="absolute top-24 left-8 p-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
             >
               <ArrowLeftIcon className="w-6 h-6" />
             </motion.button>
@@ -101,56 +101,56 @@ function ProductDetailPage() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-white p-8 rounded-xl shadow-lg flex flex-col md:flex-row gap-8"
+              className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg flex flex-col md:flex-row gap-8"
             >
               {/* Imagen del producto */}
               <div className="flex-1">
                 <img
                   src={product.image}
                   alt={product.title}
-                  className="w-full h-[400px] object-contain"
+                  className="w-full h-[400px] object-contain bg-white dark:bg-gray-700 p-4 rounded-lg"
                 />
               </div>
 
               {/* Detalles del producto */}
               <div className="flex-1 flex flex-col">
                 <div className="flex-1">
-                  <h1 className="text-3xl font-bold text-gray-900 mb-4">
+                  <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
                     {product.title}
                   </h1>
-                  <span className="px-3 py-1 text-sm rounded-full bg-primary/10 text-primary">
+                  <span className="px-3 py-1 text-sm rounded-full bg-primary/10 text-primary dark:bg-primary/20">
                     {product.category}
                   </span>
-                  <p className="mt-6 text-gray-600">
+                  <p className="mt-6 text-gray-600 dark:text-gray-300">
                     {product.description}
                   </p>
-                  <p className="mt-6 text-3xl font-bold text-primary">
+                  <p className="mt-6 text-3xl font-bold text-primary dark:text-secondary">
                     ${product.price}
                   </p>
                 </div>
 
                 {/* Controles de cantidad y botón de añadir al carrito */}
-                <div className="space-y-6 pt-6 border-t mt-auto">
+                <div className="space-y-6 pt-6 border-t dark:border-gray-700 mt-auto">
                   <div className="flex items-center justify-center gap-8">
                     {/* Botón de disminuir cantidad */}
                     <motion.button
                       whileTap={{ scale: 0.95 }}
                       onClick={() => handleQuantityChange(-1)}
-                      className="p-3 border-2 border-gray-300 rounded-full hover:bg-gray-100"
+                      className="p-3 border-2 border-gray-300 dark:border-gray-600 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"
                     >
-                      <MinusIcon className="w-6 h-6 text-gray-600" />
+                      <MinusIcon className="w-6 h-6 text-gray-600 dark:text-gray-300" />
                     </motion.button>
                     {/* Mostrar cantidad */}
-                    <span className="text-3xl font-bold text-gray-900 w-12 text-center">
+                    <span className="text-3xl font-bold text-gray-900 dark:text-white w-12 text-center">
                       {quantity}
                     </span>
                     {/* Botón de aumentar cantidad */}
                     <motion.button
                       whileTap={{ scale: 0.95 }}
                       onClick={() => handleQuantityChange(1)}
-                      className="p-3 border-2 border-gray-300 rounded-full hover:bg-gray-100"
+                      className="p-3 border-2 border-gray-300 dark:border-gray-600 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"
                     >
-                      <PlusIcon className="w-6 h-6 text-gray-600" />
+                      <PlusIcon className="w-6 h-6 text-gray-600 dark:text-gray-300" />
                     </motion.button>
                   </div>
 

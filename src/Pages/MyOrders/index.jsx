@@ -25,22 +25,18 @@ function MyOrders() {
 
   return (
     <Layout>
-      {/* Contenedor principal con fondo y padding */}
-      <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto">
-          {/* Tarjeta principal con animación de entrada */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-white p-8 rounded-xl shadow-lg"
+            className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg"
           >
-            <h2 className="text-3xl font-bold text-gray-900 mb-8">Mis Pedidos</h2>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">Mis Pedidos</h2>
 
-            {/* Renderizado condicional basado en existencia de órdenes */}
             {orders.length === 0 ? (
-              // Mensaje cuando no hay órdenes
               <div className="text-center py-12">
-                <p className="text-gray-500">No tienes pedidos realizados</p>
+                <p className="text-gray-500 dark:text-gray-400">No tienes pedidos realizados</p>
                 <Link
                   to="/products"
                   className="mt-4 inline-block text-primary hover:text-secondary"
@@ -49,23 +45,20 @@ function MyOrders() {
                 </Link>
               </div>
             ) : (
-              // Lista de órdenes
               <div className="space-y-6">
                 {orders.map((order) => (
-                  // Tarjeta individual de orden con animación
                   <motion.div
                     key={order.id}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    className="border rounded-lg p-6 hover:shadow-md transition-shadow"
+                    className="border dark:border-gray-700 rounded-lg p-6 hover:shadow-md transition-shadow dark:bg-gray-700"
                   >
-                    {/* Cabecera de la orden */}
                     <div className="flex justify-between items-start mb-4">
                       <div>
-                        <h3 className="text-lg font-semibold">
+                        <h3 className="text-lg font-semibold dark:text-white">
                           Pedido #{order.id}
                         </h3>
-                        <p className="text-gray-500">
+                        <p className="text-gray-500 dark:text-gray-400">
                           {formatDate(order.date)}
                         </p>
                       </div>

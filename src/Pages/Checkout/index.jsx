@@ -61,12 +61,12 @@ function Checkout() {
 
   return (
     <Layout>
-      <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-white p-8 rounded-xl shadow-lg relative"
+            className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg"
           >
             {/* Mensaje de éxito */}
             <AnimatePresence>
@@ -98,22 +98,31 @@ function Checkout() {
               )}
             </AnimatePresence>
 
-            <h2 className="text-3xl font-bold text-gray-900 mb-8">Checkout</h2>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">Checkout</h2>
             
             {/* Resumen del pedido */}
-            <div className="mb-8 p-4 bg-gray-50 rounded-lg">
-              <h3 className="text-xl font-semibold mb-4">Resumen del Pedido</h3>
-              {cart.map(item => (
-                <div key={item.id} className="flex justify-between mb-2">
-                  <span>{item.title} (x{item.quantity})</span>
-                  <span>${(item.price * item.quantity).toFixed(2)}</span>
-                </div>
-              ))}
-              <div className="mt-4 pt-4 border-t border-gray-200">
-                <div className="flex justify-between font-bold">
-                  <span>Total:</span>
-                  <span>${cartTotal.toFixed(2)}</span>
-                </div>
+            <div className="mb-8">
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+                Resumen del Pedido
+              </h3>
+              <div className="space-y-4">
+                {cart.map((item) => (
+                  <div key={item.id} className="flex items-center gap-4 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-20 h-20 object-contain bg-white dark:bg-gray-600 rounded-lg"
+                    />
+                    <div className="flex-1">
+                      <h4 className="font-medium text-gray-900 dark:text-white">{item.title}</h4>
+                      <p className="text-primary dark:text-secondary">${(item.price * item.quantity).toFixed(2)}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-4 flex justify-between items-center text-lg font-semibold">
+                <span className="text-gray-900 dark:text-white">Total:</span>
+                <span className="text-primary dark:text-secondary">${cartTotal.toFixed(2)}</span>
               </div>
             </div>
 
@@ -125,7 +134,7 @@ function Checkout() {
                   <h3 className="text-xl font-semibold mb-4">Datos de Envío</h3>
                   <div className="space-y-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700">
+                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                         Nombre completo
                       </label>
                       <input
@@ -134,11 +143,11 @@ function Checkout() {
                         required
                         value={formData.fullName}
                         onChange={handleChange}
-                        className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-primary focus:border-primary"
+                        className="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700">
+                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                         Dirección
                       </label>
                       <input
@@ -147,11 +156,11 @@ function Checkout() {
                         required
                         value={formData.address}
                         onChange={handleChange}
-                        className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-primary focus:border-primary"
+                        className="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700">
+                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                         Ciudad
                       </label>
                       <input
@@ -160,7 +169,7 @@ function Checkout() {
                         required
                         value={formData.city}
                         onChange={handleChange}
-                        className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-primary focus:border-primary"
+                        className="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                       />
                     </div>
                   </div>
@@ -171,7 +180,7 @@ function Checkout() {
                   <h3 className="text-xl font-semibold mb-4">Datos de Pago</h3>
                   <div className="space-y-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700">
+                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                         Número de tarjeta
                       </label>
                       <input
@@ -181,12 +190,12 @@ function Checkout() {
                         maxLength="16"
                         value={formData.cardNumber}
                         onChange={handleChange}
-                        className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-primary focus:border-primary"
+                        className="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                       />
                     </div>
                     <div className="grid grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700">
+                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                           Fecha de expiración
                         </label>
                         <input
@@ -197,11 +206,11 @@ function Checkout() {
                           maxLength="5"
                           value={formData.expiryDate}
                           onChange={handleChange}
-                          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-primary focus:border-primary"
+                          className="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700">
+                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                           CVV
                         </label>
                         <input
@@ -211,7 +220,7 @@ function Checkout() {
                           maxLength="3"
                           value={formData.cvv}
                           onChange={handleChange}
-                          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-primary focus:border-primary"
+                          className="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                         />
                       </div>
                     </div>

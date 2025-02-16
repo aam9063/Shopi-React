@@ -8,30 +8,28 @@ function ProductFilters({
   sortOptions 
 }) {
   return (
-    <div className="p-6 mb-8 bg-white shadow-md rounded-xl">
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {/* Filtro por categoría */}
+    <div className="mb-8 mt-8 p-4 bg-white dark:bg-gray-800 rounded-xl shadow-md">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {/* Categoría */}
         <div>
-          <label className="block mb-2 text-sm font-medium text-gray-700">
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
             Categoría
           </label>
           <select
             value={filters.category}
             onChange={(e) => setFilters({ ...filters, category: e.target.value })}
-            className="w-full border-gray-300 rounded-lg shadow-sm focus:border-primary focus:ring-primary"
+            className="w-full px-4 py-2 border dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
           >
             <option value="">Todas</option>
             {categories.map((category) => (
-              <option key={category} value={category}>
-                {category.charAt(0).toUpperCase() + category.slice(1)}
-              </option>
+              <option key={category} value={category}>{category}</option>
             ))}
           </select>
         </div>
 
-        {/* Filtro por precio */}
+        {/* Precio */}
         <div>
-          <label className="block mb-2 text-sm font-medium text-gray-700">
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
             Precio máximo: ${filters.maxPrice}
           </label>
           <input
@@ -40,19 +38,19 @@ function ProductFilters({
             max={priceRange.max}
             value={filters.maxPrice}
             onChange={(e) => setFilters({ ...filters, maxPrice: Number(e.target.value) })}
-            className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:bg-primary [&::-webkit-slider-thumb]:rounded-full hover:[&::-webkit-slider-thumb]:bg-secondary"
+            className="w-full"
           />
         </div>
 
-        {/* Ordenamiento */}
+        {/* Ordenar */}
         <div>
-          <label className="block mb-2 text-sm font-medium text-gray-700">
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
             Ordenar por
           </label>
           <select
             value={filters.sort}
             onChange={(e) => setFilters({ ...filters, sort: e.target.value })}
-            className="w-full border-gray-300 rounded-lg shadow-sm focus:border-primary focus:ring-primary"
+            className="w-full px-4 py-2 border dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
           >
             {sortOptions.map((option) => (
               <option key={option.value} value={option.value}>

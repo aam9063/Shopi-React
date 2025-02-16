@@ -114,9 +114,9 @@ function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 w-full bg-white shadow-lg md:hidden"
+            className="absolute top-full left-0 w-full bg-white dark:bg-gray-800 shadow-lg md:hidden"
           >
-            <ul className='flex flex-col py-4 px-8 gap-4'>
+            <ul className='flex flex-col py-4 px-8 gap-4 dark:text-gray-300'>
               {['/', '/products'].map((path) => (
                 <motion.li 
                   key={path} 
@@ -125,7 +125,11 @@ function Navbar() {
                 >
                   <NavLink
                     to={path}
-                    className={({ isActive }) => isActive ? activeStyle : undefined}
+                    className={({ isActive }) => 
+                      isActive 
+                        ? `${activeStyle} dark:text-white` 
+                        : 'dark:hover:text-white'
+                    }
                   >
                     {path === '/' ? 'Home' : 'Products'}
                   </NavLink>
@@ -142,7 +146,11 @@ function Navbar() {
                     >
                       <NavLink
                         to={path}
-                        className={({ isActive }) => isActive ? activeStyle : undefined}
+                        className={({ isActive }) => 
+                          isActive 
+                            ? `${activeStyle} dark:text-white` 
+                            : 'dark:hover:text-white'
+                        }
                       >
                         {path.slice(1).split('-').map(word => 
                           word.charAt(0).toUpperCase() + word.slice(1)

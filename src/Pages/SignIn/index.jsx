@@ -46,24 +46,16 @@ function SignIn() {
 
   return (
     <Layout>
-      {/* Contenedor principal con fondo y padding */}
-      <div className="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-md mx-auto">
-          {/* Tarjeta del formulario con animación de entrada */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-white p-8 rounded-xl shadow-lg"
+            className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg"
           >
-            {/* Cabecera del formulario */}
-            <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold text-gray-900">
-                Iniciar Sesión
-              </h2>
-              <p className="mt-2 text-gray-600">
-                Bienvenido de nuevo a Shopi
-              </p>
-            </div>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">
+              Iniciar Sesión
+            </h2>
 
             {/* Mensaje de error condicional */}
             {error && (
@@ -74,9 +66,8 @@ function SignIn() {
 
             {/* Formulario de inicio de sesión */}
             <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Campo de email */}
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                   Email
                 </label>
                 <input
@@ -86,13 +77,12 @@ function SignIn() {
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
+                  className="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-primary focus:border-primary"
                 />
               </div>
 
-              {/* Campo de contraseña */}
               <div>
-                <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+                <label htmlFor="password" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                   Contraseña
                 </label>
                 <input
@@ -102,11 +92,10 @@ function SignIn() {
                   required
                   value={formData.password}
                   onChange={handleChange}
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
+                  className="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-primary focus:border-primary"
                 />
               </div>
 
-              {/* Botón de submit con animaciones */}
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}

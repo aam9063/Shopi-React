@@ -129,7 +129,7 @@ function Products() {
               onClick={() => currentPage > 1 && paginate(currentPage - 1)}
               className={`px-4 py-2 rounded-lg ${
                 currentPage === 1 
-                  ? 'bg-gray-200 cursor-not-allowed' 
+                  ? 'bg-gray-300 cursor-not-allowed' 
                   : 'bg-primary text-white hover:bg-secondary'
               }`}
               disabled={currentPage === 1}
@@ -148,7 +148,7 @@ function Products() {
                   className={`w-10 h-10 rounded-lg ${
                     currentPage === index + 1
                       ? 'bg-primary text-white'
-                      : 'bg-gray-200 hover:bg-gray-300'
+                      : 'bg-gray-300 hover:bg-gray-300'
                   }`}
                 >
                   {index + 1}
