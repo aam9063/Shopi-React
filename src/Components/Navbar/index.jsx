@@ -143,7 +143,7 @@ function Navbar() {
       <div className="flex items-center gap-4">
         {user ? (
           <>
-            <span className="text-sm text-gray-400">{user.email}</span>
+            <span className="text-sm text-gray-400">{user.name}</span>
             <motion.div 
               whileHover={{ y: -2 }}
               onClick={logout}
