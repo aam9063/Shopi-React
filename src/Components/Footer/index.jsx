@@ -74,7 +74,7 @@ function Footer() {
               </div>
               <div className="flex items-center gap-3">
                 <FaMapMarkerAlt className="text-primary" />
-                <span>Calle Principal 123, Madrid</span>
+                <span>Calle Principal 123, Alicante</span>
               </div>
             </div>
           </div>
