@@ -30,7 +30,7 @@ function SignIn() {
         email: formData.email,
         name: formData.email.split('@')[0]  // Usa parte del email como nombre
       })
-      navigate('/my-account')  // Redirige a la cuenta del usuario
+      navigate('/')  // Redirige a la cuenta del usuario
     } else {
       setError('Por favor, completa todos los campos')
     }
