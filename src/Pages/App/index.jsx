@@ -8,7 +8,6 @@ import Home from '../Home'
 import Products from '../Products'
 import ProductDetailPage from '../ProductDetailPage'
 import MyAccount from '../MyAccount'
-import MyOrder from '../MyOrder'
 import MyOrders from '../MyOrders'
 import NotFound from '../NotFound'
 import SignIn from '../SignIn'
@@ -23,7 +22,6 @@ const AppRoutes = () => {
     { path: '/products', element: <Products /> },        // Lista de productos
     { path: '/product/:id', element: <ProductDetailPage /> }, // Detalle de producto
     { path: '/my-account', element: <MyAccount /> },     // Cuenta de usuario
-    { path: '/my-order', element: <MyOrder /> },         // Orden individual
     { path: '/my-orders', element: <MyOrders /> },       // Lista de órdenes
     { path: '/sign-in', element: <SignIn /> },           // Inicio de sesión
     { path: '/checkout', element: <Checkout /> },
