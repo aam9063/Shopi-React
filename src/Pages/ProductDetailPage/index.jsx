@@ -48,7 +48,6 @@ function ProductDetailPage() {
       ...product,
       quantity: quantity
     })
-    navigate('/products')  // Redirige a la página de productos
   }
 
   // Renderizado durante la carga
