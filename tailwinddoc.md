@@ -200,12 +200,199 @@ body.dark {
 
 ---
 
-## 🏆 **Conclusión**
-### ✅ **Principales ventajas del enfoque con Tailwind**
-✔ **Flexibilidad total**: Se usa `flex` y `grid` según cada caso.  
-✔ **Modo oscuro optimizado**: Cambios suaves entre `light` y `dark`.  
-✔ **Configuración clara**: Tema personalizado con colores y fuentes en `tailwind.config.cjs`.  
-✔ **Diseño adaptable**: `grid-cols` y `flex-wrap` garantizan una UI **responsive**.  
-✔ **Carga optimizada**: Solo se generan los estilos utilizados gracias a la configuración de `content`.  
-✔ **Código más limpio**: Uso de `@apply` para evitar repetición de estilos.  
+# **📖 Framer Motion y Swiper**
+
+En **Shopi**, usamos dos librerías principales para mejorar la experiencia de usuario con animaciones y carruseles:
+
+1. **Framer Motion** - Para animaciones suaves y transiciones dinámicas.
+2. **Swiper** - Para implementar un carrusel interactivo en la página de inicio.
+
+---
+
+## **🎞️ 1. Framer Motion - Animaciones en la App**
+📌 **Framer Motion** es una librería para React que permite añadir **animaciones fluidas** a los componentes.
+
+### 📂 **Importación**
+```jsx
+import { motion } from 'framer-motion'
 ```
+- `motion` es un componente especial que reemplaza elementos HTML estándar (`div`, `button`, etc.) para agregar **animaciones declarativas**.
+
+---
+
+### **📌 Uso Básico**
+```jsx
+<motion.div
+  initial={{ opacity: 0, y: -20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.5 }}
+>
+  ¡Hola, Framer Motion!
+</motion.div>
+```
+✅ **Explicación:**
+- `initial={{ opacity: 0, y: -20 }}` → Estado inicial (invisible y desplazado hacia arriba).
+- `animate={{ opacity: 1, y: 0 }}` → Estado final (visible y en su posición original).
+- `transition={{ duration: 0.5 }}` → Duración de la animación (0.5 segundos).
+
+---
+
+## **📌 Uso en Shopi**
+
+### 🎭 **Animación en Navbar**
+📍 La `Navbar` aparece con un **desplazamiento desde arriba**.
+
+```jsx
+<motion.nav
+  initial={{ y: -100 }}
+  animate={{ y: 0 }}
+  transition={{ duration: 0.3 }}
+  className="fixed top-0 w-full bg-white shadow-md"
+>
+  <h1>Shopi</h1>
+</motion.nav>
+```
+✅ **Explicación:**
+- Se **desplaza desde `y: -100` hasta `y: 0`** al cargarse la página.
+
+---
+
+### 💡 **Botón con animación de escala**
+📍 Al hacer **hover o clic**, cambia su tamaño.
+
+```jsx
+<motion.button
+  whileHover={{ scale: 1.1 }}
+  whileTap={{ scale: 0.9 }}
+  className="px-4 py-2 bg-primary text-white rounded-lg"
+>
+  Comprar Ahora
+</motion.button>
+```
+✅ **Explicación:**
+- `whileHover={{ scale: 1.1 }}` → Aumenta el tamaño en hover.
+- `whileTap={{ scale: 0.9 }}` → Se reduce ligeramente al hacer clic.
+
+---
+
+### 🎠 **Paginación Animada en ProductFilters**
+📍 En la paginación de productos, los botones tienen un **efecto de rebote**.
+
+```jsx
+<motion.button
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.95 }}
+  className="bg-primary text-white px-4 py-2 rounded-lg"
+>
+  Siguiente
+</motion.button>
+```
+✅ **Explicación:**
+- **Aumenta** al pasar el ratón (`scale: 1.05`).
+- **Se reduce** al hacer clic (`scale: 0.95`).
+
+---
+
+### ✅ **Resumen de Framer Motion**
+|  **Uso**                | 🎭 **Ejemplo**                              |
+|------------------------|----------------------------------|
+| Animación de entrada  | `initial={{ opacity: 0 }}` y `animate={{ opacity: 1 }}` |
+| Hover & Tap           | `whileHover={{ scale: 1.1 }}` y `whileTap={{ scale: 0.9 }}` |
+| Transiciones suaves   | `transition={{ duration: 0.5 }}` |
+| Animaciones en listas | `layout` en `motion.div` |
+
+---
+
+## **📌 2. Swiper - Carrusel de Productos**
+📌 **Swiper** es una librería para implementar **carruseles y sliders responsivos**.
+
+### 📂 **Instalación**
+```bash
+npm install swiper
+```
+
+### 📂 **Importación**
+```jsx
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Autoplay, Pagination, Navigation } from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/pagination'
+import 'swiper/css/navigation'
+```
+- **`Swiper`**: Componente principal del carrusel.
+- **`SwiperSlide`**: Representa cada diapositiva.
+- **`Autoplay`**: Habilita la reproducción automática.
+- **`Pagination`**: Muestra puntos de navegación.
+- **`Navigation`**: Agrega botones de siguiente y anterior.
+
+---
+
+### **📌 Uso en Shopi - Hero Section**
+📍 En **Hero/index.jsx**, se usa `Swiper` para mostrar los productos destacados.
+
+```jsx
+<Swiper
+  spaceBetween={0}
+  centeredSlides={true}
+  effect="fade"
+  autoplay={{
+    delay: 5000,
+    disableOnInteraction: false,
+  }}
+  pagination={{
+    clickable: true,
+    dynamicBullets: true,
+  }}
+  navigation={true}
+  modules={[Autoplay, Pagination, Navigation]}
+  className="w-full h-full"
+>
+  {featuredProducts.map((product) => (
+    <SwiperSlide key={product.id}>
+      <div className="flex flex-col md:flex-row items-center justify-between">
+        <div className="text-center md:text-left">
+          <h2>{product.title}</h2>
+          <p>{product.description}</p>
+          <button className="bg-primary text-white px-4 py-2 rounded-lg">
+            Ver Producto
+          </button>
+        </div>
+        <img src={product.image} className="w-1/2 h-auto" />
+      </div>
+    </SwiperSlide>
+  ))}
+</Swiper>
+```
+
+✅ **Explicación:**
+- `effect="fade"` → Aplica un **efecto de transición suave**.
+- `autoplay={{ delay: 5000 }}` → Cambia cada **5 segundos**.
+- `pagination={{ clickable: true }}` → Permite cambiar de slide con **puntos interactivos**.
+- `navigation={true}` → Agrega **botones de siguiente/anterior**.
+
+---
+
+### 🎡 **Configuración de Swiper en `tailwind.config.js`**
+📍 Swiper se integra bien con Tailwind CSS sin necesidad de configuraciones adicionales.
+
+---
+
+### ✅ **Resumen de Swiper**
+|  **Funcionalidad**  | 🎭 **Ejemplo**                            |
+|----------------------|--------------------------------|
+| Carrusel básico     | `<Swiper> <SwiperSlide>`        |
+| Paginación          | `pagination={{ clickable: true }}` |
+| Autoplay           | `autoplay={{ delay: 5000 }}`     |
+| Botones de navegación | `navigation={true}`            |
+| Efecto Fade        | `effect="fade"`                 |
+
+---
+
+## **📌 Comparación: Framer Motion vs. Swiper**
+| **Librería**       | **Uso Principal**                  | **Ejemplo en Shopi**         |
+|--------------------|--------------------------------|----------------------------|
+| Framer Motion     | Animaciones & Transiciones   | Navbar, botones, carrito  |
+| Swiper            | Carruseles & Sliders        | Hero Section |
+
+---
+
