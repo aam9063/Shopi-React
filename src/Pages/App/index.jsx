@@ -1,6 +1,5 @@
 import { useRoutes, BrowserRouter } from 'react-router-dom'
 
-import { ShoppingCartProvider } from '../../Context'
 import { AuthProvider } from '../../Context/AuthContext'
 import { CartProvider } from '../../Context/CartContext'
 
@@ -38,10 +37,8 @@ function App() {
     <BrowserRouter>
       {/* Providers de contexto anidados */}
       <AuthProvider>        {/* Contexto de autenticación */}
-        <CartProvider>      {/* Contexto del nuevo carrito */}
-          <ShoppingCartProvider>  {/* Contexto del carrito legacy */}
+        <CartProvider>      {/* Contexto del carrito */}
             <AppRoutes />   {/* Renderizado de rutas */}
-          </ShoppingCartProvider>
         </CartProvider>
       </AuthProvider>
     </BrowserRouter>

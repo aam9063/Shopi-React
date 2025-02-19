@@ -11,7 +11,6 @@ import { useTheme } from '../../Context/ThemeContext'
 
 function Navbar() {
   // Hooks y estados necesarios
-  const location = useLocation()
   const { toggleCart, cart } = useCart()
   const { user, logout } = useAuth()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -35,7 +34,7 @@ function Navbar() {
     return currentTheme ? currentTheme.icon : themeOptions[0].icon
   }
 
-  const ThemeIcon = getCurrentThemeIcon()
+  const ThemeIcon = getCurrentThemeIcon();
 
   return (
     // Barra de navegación con animación de entrada
@@ -50,7 +49,7 @@ function Navbar() {
           whileHover={{ scale: 1.05 }}
           className='font-semibold text-lg'>
           <NavLink to='/'>
-            Shopi
+            Trends Shop
           </NavLink>
         </motion.div>
         
@@ -189,7 +188,7 @@ function Navbar() {
                   onClick={() => setIsThemeMenuOpen(false)}
                 />
                 
-                {/* Menú desplegable */}
+                {/* Menú desplegable Temas */}
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}

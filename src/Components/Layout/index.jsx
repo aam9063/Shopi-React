@@ -1,13 +1,9 @@
-import { useContext } from 'react'                    // Hook para usar contextos
-import { ShoppingCartContext } from '../../Context'   // Contexto del carrito
 import Navbar from '../Navbar'                        // Barra de navegación
 import Footer from '../Footer'                        // Pie de página
 import Cart from '../Cart'                            // Componente del carrito
 
 // Componente Layout que actúa como estructura base para todas las páginas
 function Layout({ children }) {
-  // Obtener el contexto del carrito de compras
-  const context = useContext(ShoppingCartContext)
 
   return (
     // Contenedor principal con flex column y altura mínima de pantalla completa

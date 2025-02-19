@@ -57,7 +57,7 @@ function Footer() {
           {/* Logo y descripción */}
           <div className="lg:col-span-2">
             <Link to="/" className="inline-block mb-6 text-3xl font-bold text-white">
-              Shopi
+              Trends Shop
             </Link>
             <p className="mb-6 text-gray-400">
               Tu tienda de confianza para todo tipo de productos. Ofrecemos la mejor
@@ -70,7 +70,7 @@ function Footer() {
               </div>
               <div className="flex items-center gap-3">
                 <FaEnvelope className="text-primary" />
-                <span>info@shopi.com</span>
+                <span>info@trendsshop.com</span>
               </div>
               <div className="flex items-center gap-3">
                 <FaMapMarkerAlt className="text-primary" />
