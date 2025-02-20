@@ -23,9 +23,9 @@ function Navbar() {
   const cartItemsCount = cart.reduce((total, item) => total + item.quantity, 0)
 
   const themeOptions = [
-    { value: 'light', icon: SunIcon, label: 'Claro' },
-    { value: 'dark', icon: MoonIcon, label: 'Oscuro' },
-    { value: 'system', icon: ComputerDesktopIcon, label: 'Sistema' }
+    { value: 'light', icon: SunIcon, label: 'Light' },
+    { value: 'dark', icon: MoonIcon, label: 'Dark' },
+    { value: 'system', icon: ComputerDesktopIcon, label: 'System' }
   ]
 
   // Función para obtener el icono actual según el tema
@@ -226,7 +226,7 @@ function Navbar() {
               onClick={logout}
               className="cursor-pointer text-primary hover:text-secondary font-bold"
             >
-              Cerrar Sesión
+              Sign Out
             </motion.div>
           </>
         ) : (
@@ -235,7 +235,7 @@ function Navbar() {
               to='/sign-in'
               className={({ isActive }) => isActive ? activeStyle : undefined}
             >
-              Iniciar Sesión
+              Sign In
             </NavLink>
           </motion.div>
         )}

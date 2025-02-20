@@ -45,10 +45,10 @@ function NotFound() {
 
         {/* Mensajes de error */}
         <h2 className="text-3xl font-bold text-gray-800 mb-4">
-          ¡Ups! Página no encontrada
+          Oops! Page not found
         </h2>
         <p className="text-gray-600 mb-8">
-          Parece que te has perdido en el espacio. La página que buscas no existe o ha sido movida a otra galaxia.
+          It seems you've wandered off into space. The page you're looking for doesn't exist or has been moved to another galaxy.
         </p>
 
         {/* Botón de retorno al inicio con animaciones */}
@@ -61,7 +61,7 @@ function NotFound() {
             className="inline-flex items-center gap-2 px-8 py-3 text-white bg-primary hover:bg-secondary rounded-xl transition-colors duration-300"
           >
             <FaHome className="text-xl" />
-            <span>Volver al inicio</span>
+            <span>Back to Home</span>
           </Link>
         </motion.div>
       </motion.div>

@@ -13,14 +13,14 @@ function ProductFilters({
         {/* Categoría */}
         <div>
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-            Categoría
+            Category
           </label>
           <select
             value={filters.category}
             onChange={(e) => setFilters({ ...filters, category: e.target.value })}
             className="w-full px-4 py-2 border dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
           >
-            <option value="">Todas</option>
+            <option value="">All</option>
             {categories.map((category) => (
               <option key={category} value={category}>{category}</option>
             ))}
@@ -30,7 +30,7 @@ function ProductFilters({
         {/* Precio */}
         <div>
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-            Precio máximo: ${filters.maxPrice}
+            Max Price: ${filters.maxPrice}
           </label>
           <input
             type="range"
@@ -45,7 +45,7 @@ function ProductFilters({
         {/* Ordenar */}
         <div>
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-            Ordenar por
+            Order by
           </label>
           <select
             value={filters.sort}

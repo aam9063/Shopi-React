@@ -68,7 +68,7 @@ function Card({ data: product, index }) {
             className="flex items-center gap-2 p-2 text-white transition-colors duration-300 rounded-xl bg-primary hover:bg-secondary"
           >
             <PlusIcon className="h-6 w-6" />
-            <span className="hidden sm:inline">Añadir</span>
+            <span className="hidden sm:inline">Add to Cart</span>
           </motion.button>
         </div>
       </div>

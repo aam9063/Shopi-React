@@ -32,16 +32,16 @@ function MyOrders() {
             animate={{ opacity: 1, y: 0 }}
             className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg"
           >
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">Mis Pedidos</h2>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">My Orders</h2>
 
             {orders.length === 0 ? (
               <div className="text-center py-12">
-                <p className="text-gray-500 dark:text-gray-400">No tienes pedidos realizados</p>
+                <p className="text-gray-500 dark:text-gray-400">You don't have any orders yet</p>
                 <Link
                   to="/products"
                   className="mt-4 inline-block text-primary hover:text-secondary"
                 >
-                  Ir a comprar
+                  Go to products
                 </Link>
               </div>
             ) : (
@@ -56,7 +56,7 @@ function MyOrders() {
                     <div className="flex justify-between items-start mb-4">
                       <div>
                         <h3 className="text-lg font-semibold dark:text-white">
-                          Pedido #{order.id}
+                          Order #{order.id}
                         </h3>
                         <p className="text-gray-500 dark:text-gray-400">
                           {formatDate(order.date)}
@@ -84,7 +84,7 @@ function MyOrders() {
                             <div>
                               <p className="font-medium">{product.title}</p>
                               <p className="text-sm text-gray-500">
-                                Cantidad: {product.quantity}
+                                Quantity: {product.quantity}
                               </p>
                             </div>
                           </div>
@@ -99,7 +99,7 @@ function MyOrders() {
                     {/* Pie de la orden con total */}
                     <div className="mt-4 pt-4 border-t flex justify-between items-center">
                       <div>
-                        <p className="text-gray-500">Enviado a:</p>
+                        <p className="text-gray-500">Send to:</p>
                         <p className="font-medium">{order.shipping.fullName}</p>
                         <p className="text-sm text-gray-500">
                           {order.shipping.address}, {order.shipping.city}

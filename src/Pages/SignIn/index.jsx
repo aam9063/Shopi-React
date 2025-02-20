@@ -54,7 +54,7 @@ function SignIn() {
             className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg"
           >
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">
-              Iniciar Sesión
+              Sign In
             </h2>
 
             {/* Mensaje de error condicional */}
@@ -83,7 +83,7 @@ function SignIn() {
 
               <div>
                 <label htmlFor="password" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                  Contraseña
+                  Password
                 </label>
                 <input
                   id="password"
@@ -102,7 +102,7 @@ function SignIn() {
                 type="submit"
                 className="w-full flex justify-center py-3 px-4 border border-transparent rounded-xl shadow-sm text-sm font-medium text-white bg-primary hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
               >
-                Iniciar Sesión
+                Sign In
               </motion.button>
             </form>
           </motion.div>

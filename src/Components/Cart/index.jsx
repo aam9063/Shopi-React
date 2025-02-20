@@ -61,7 +61,7 @@ function Cart() {
             <div className="flex flex-col h-full">
               {/* Cabecera del carrito */}
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">Carrito</h2>
+                <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">Cart</h2>
                 <button
                   onClick={toggleCart}
                   className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-500 dark:text-gray-400"
@@ -79,7 +79,7 @@ function Cart() {
                     exit={{ opacity: 0, y: -20 }}
                     className="p-4 mb-4 text-center text-white bg-red-500 rounded-lg"
                   >
-                    Debes iniciar sesión para realizar la compra
+                    You must sign in to make a purchase
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -87,7 +87,7 @@ function Cart() {
               {/* Lista de productos en el carrito */}
               {cart.length === 0 ? (
                 <div className="flex-1 flex items-center justify-center">
-                  <p className="text-gray-500 dark:text-gray-400">Tu carrito está vacío</p>
+                  <p className="text-gray-500 dark:text-gray-400">Your cart is empty</p>
                 </div>
               ) : (
                 <>
@@ -161,7 +161,7 @@ function Cart() {
                       onClick={handleCheckout}
                       className="w-full py-3 text-white transition-colors bg-primary hover:bg-secondary rounded-xl"
                     >
-                      Finalizar Compra
+                      Go to Checkout
                     </motion.button>
                   </div>
                 </>

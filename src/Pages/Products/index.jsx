@@ -95,11 +95,11 @@ function Products() {
             max: Math.ceil(Math.max(...(items?.map(item => item.price) || [0])))
           }}
           sortOptions={[
-            { value: 'default', label: 'Por defecto' },
-            { value: 'price-asc', label: 'Precio: Menor a Mayor' },
-            { value: 'price-desc', label: 'Precio: Mayor a Menor' },
-            { value: 'name-asc', label: 'Nombre: A-Z' },
-            { value: 'name-desc', label: 'Nombre: Z-A' }
+            { value: 'default', label: 'By default' },
+            { value: 'price-asc', label: 'Price: Low to High' },
+            { value: 'price-desc', label: 'Price: High to Low' },
+            { value: 'name-asc', label: 'Name: A-Z' },
+            { value: 'name-desc', label: 'Name: Z-A' }
           ]}
         />
 
@@ -134,7 +134,7 @@ function Products() {
               }`}
               disabled={currentPage === 1}
             >
-              Anterior
+              Previous
             </motion.button>
             
             {/* Números de página */}
@@ -168,7 +168,7 @@ function Products() {
               }`}
               disabled={currentPage === totalPages}
             >
-              Siguiente
+              Next
             </motion.button>
           </div>
         )}

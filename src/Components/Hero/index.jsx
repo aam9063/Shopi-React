@@ -62,7 +62,7 @@ function Hero({ featuredProducts }) {
                       to={`/product/${product.id}`}
                       className="px-8 py-3 text-white transition-colors bg-primary hover:bg-secondary rounded-xl"
                     >
-                      Ver Producto
+                      View Product
                     </Link>
                     {/* Precio del producto */}
                     <span className="text-3xl font-bold text-gray-800 dark:text-white">

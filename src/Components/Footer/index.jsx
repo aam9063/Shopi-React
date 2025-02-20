@@ -15,29 +15,29 @@ function Footer() {
   const currentYear = new Date().getFullYear()
 
   const footerLinks = {
-    categorías: [
+    categories: [
       { name: "Men's clothing", path: '/products?category=mens-clothing' },
       { name: "Women's clothing", path: '/products?category=womens-clothing' },
       { name: 'Jewelery', path: '/products?category=jewelery' },
       { name: 'Electronics', path: '/products?category=electronics' }
     ],
-    empresa: [
-      { name: 'Sobre Nosotros', path: '/about' },
-      { name: 'Contacto', path: '/contact' },
-      { name: 'Trabaja con Nosotros', path: '/careers' },
+    company: [
+      { name: 'About Us', path: '/about' },
+      { name: 'Contact', path: '/contact' },
+      { name: 'Careers', path: '/careers' },
       { name: 'Blog', path: '/blog' }
     ],
-    ayuda: [
+    help: [
       { name: 'FAQ', path: '/faq' },
-      { name: 'Envíos', path: '/shipping' },
-      { name: 'Devoluciones', path: '/returns' },
-      { name: 'Garantía', path: '/warranty' }
+      { name: 'Shipping', path: '/shipping' },
+      { name: 'Returns', path: '/returns' },
+      { name: 'Warranty', path: '/warranty' }
     ],
     legal: [
-      { name: 'Términos y Condiciones', path: '/terms' },
-      { name: 'Política de Privacidad', path: '/privacy' },
+      { name: 'Terms and Conditions', path: '/terms' },
+      { name: 'Privacy Policy', path: '/privacy' },
       { name: 'Cookies', path: '/cookies' },
-      { name: 'Aviso Legal', path: '/legal' }
+      { name: 'Legal Notice', path: '/legal' }
     ]
   }
 
@@ -60,8 +60,8 @@ function Footer() {
               Trends Shop
             </Link>
             <p className="mb-6 text-gray-400">
-              Tu tienda de confianza para todo tipo de productos. Ofrecemos la mejor
-              selección con garantía de calidad y servicio excepcional.
+                Your trusted store for all types of products. We offer the best
+                selection with guaranteed quality and exceptional service.
             </p>
             <div className="space-y-3">
               <div className="flex items-center gap-3">
@@ -74,7 +74,7 @@ function Footer() {
               </div>
               <div className="flex items-center gap-3">
                 <FaMapMarkerAlt className="text-primary" />
-                <span>Calle Principal 123, Alicante</span>
+                <span>Principal Street 123, Alicante</span>
               </div>
             </div>
           </div>
@@ -108,7 +108,7 @@ function Footer() {
         <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
           {/* Copyright */}
           <div className="text-sm text-gray-400">
-            © {currentYear} Trends Shop. Todos los derechos reservados.
+            © {currentYear} Trends Shop. All rights reserved.
           </div>
 
           {/* Redes sociales */}
@@ -136,16 +136,16 @@ function Footer() {
           <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
             <div>
               <h4 className="mb-2 font-semibold text-white">
-                Suscríbete a nuestra newsletter
+                Subscribe to our newsletter
               </h4>
               <p className="text-gray-400">
-                Recibe las últimas novedades y ofertas exclusivas
+                Receive the latest news and exclusive offers
               </p>
             </div>
             <form className="flex w-full gap-2 md:w-auto">
               <input
                 type="email"
-                placeholder="Tu email"
+                placeholder="Your email"
                 className="flex-1 px-4 py-2 text-white placeholder-gray-400 bg-gray-700 border border-gray-600 md:w-64 rounded-xl focus:outline-none focus:border-primary"
               />
               <motion.button
@@ -154,7 +154,7 @@ function Footer() {
                 type="submit"
                 className="px-6 py-2 text-white transition-colors bg-primary rounded-xl hover:bg-secondary"
               >
-                Suscribirse
+                Subscribe
               </motion.button>
             </form>
           </div>

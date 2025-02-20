@@ -161,7 +161,7 @@ function ProductDetailPage() {
                     className="w-full flex items-center justify-center gap-2 px-8 py-4 border border-transparent text-lg font-medium rounded-xl text-white bg-primary hover:bg-secondary mb-4"
                   >
                     <ShoppingCartIcon className="w-6 h-6" />
-                    Añadir al carrito - ${(product.price * quantity).toFixed(2)}
+                    Add to Cart - ${(product.price * quantity).toFixed(2)}
                   </motion.button>
                 </div>
               </div>

@@ -33,7 +33,7 @@ function MyAccount() {
             className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg"
           >
             <div className="flex justify-between items-center mb-8">
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Mi Cuenta</h2>
+              <h2 className="text-3xl font-bold text-gray-900 dark:text-white">My Account</h2>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -47,7 +47,7 @@ function MyAccount() {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                  Nombre
+                  Name
                 </label>
                 {isEditing ? (
                   <input
@@ -79,7 +79,7 @@ function MyAccount() {
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                  Dirección
+                  Address
                 </label>
                 {isEditing ? (
                   <input
@@ -89,13 +89,13 @@ function MyAccount() {
                     className="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                   />
                 ) : (
-                  <p className="mt-1 text-gray-900 dark:text-white">{formData.address || 'No especificada'}</p>
+                  <p className="mt-1 text-gray-900 dark:text-white">{formData.address || 'Not specified'}</p>
                 )}
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                  Teléfono
+                  Phone
                 </label>
                 {isEditing ? (
                   <input
@@ -105,7 +105,7 @@ function MyAccount() {
                     className="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                   />
                 ) : (
-                  <p className="mt-1 text-gray-900 dark:text-white">{formData.phone || 'No especificado'}</p>
+                  <p className="mt-1 text-gray-900 dark:text-white">{formData.phone || 'Not specified'}</p>
                 )}
               </div>
 
@@ -116,7 +116,7 @@ function MyAccount() {
                   type="submit"
                   className="w-full py-3 text-white transition-colors bg-primary hover:bg-secondary rounded-xl"
                 >
-                  Guardar Cambios
+                  Save Changes
                 </motion.button>
               )}
             </form>
