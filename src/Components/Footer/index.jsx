@@ -108,7 +108,7 @@ function Footer() {
         <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
           {/* Copyright */}
           <div className="text-sm text-gray-400">
-            © {currentYear} Shopi. Todos los derechos reservados.
+            © {currentYear} Trends Shop. Todos los derechos reservados.
           </div>
 
           {/* Redes sociales */}
